@@ -322,42 +322,53 @@ profile-photo .img{
 
 
 /*---------------------------Projects---------------------------*/
-.project-content{
+.project-content {
   padding: 90px 0;
-  /* color:#fff;  */
 }
-.project-title{
+
+.project-title {
   margin-bottom: 60px;
   text-align: center;
 }
-.project-title h4{
+
+.project-title h4 {
   text-transform: uppercase;
   font-size: 40px;
   line-height: 40px;
   color: #fed700;
   margin-bottom: 20px;
 }
-.project-title p{
+
+.project-title p {
   color: #e5e5e5;
 }
-.projects{
+
+.projects {
   display: flex;
-  justify-content:space-between;
-  flex-wrap: wrap;
+  justify-content: space-between; /* Ensures equal spacing */
+  align-items: stretch; /* Ensures all cards are same height */
+  flex-wrap: nowrap; /* Prevents wrapping */
+  gap: 20px; /* Space between cards */
 }
-.project{
-    /* padding: 30px 15px; */
-    color: #e5e5e5;
-    border: 2px solid #e5e5e5;
-    border-radius: 10px;
-    width: 100%;
-    position: relative;
-    padding: 25px;
-    text-align: center;
-    flex-basis: 32%;
-    transition: .3s;
+
+.project {
+  color: #e5e5e5;
+  border: 2px solid #e5e5e5;
+  border-radius: 10px;
+  position: relative;
+  padding: 25px;
+  text-align: center;
+  flex: 1; /* Ensures equal width */
+  max-width: 400px; /* Limits card width */
+  transition: 0.3s;
+  background-color: #222;
+  height: 100%; /* Ensures all cards have the same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.project i{
+
+.project i {
   background-color: #fed700;
   width: 60px;
   height: 60px;
@@ -365,18 +376,50 @@ profile-photo .img{
   font-size: 26px;
   line-height: 60px;
   border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin: 0 auto 10px auto; /* Centers the icon */
 }
-.project h4{
+
+.project h4 {
   font-size: 26px;
   text-transform: capitalize;
   margin: 20px 0;
 }
-.project p{
+
+.project p {
   text-align: justify;
 }
-.project:hover{
+
+.project:hover {
   border-color: #fed700;
+  transform: scale(1.05);
 }
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .projects {
+      flex-wrap: wrap; /* Allows wrapping on smaller screens */
+      justify-content: center; /* Centers cards when wrapping */
+  }
+
+  .project {
+      flex: 1 1 calc(33.33% - 20px); /* Ensures 3 cards per row */
+      max-width: calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+      flex-direction: column; /* Stacks cards on smaller screens */
+      align-items: center;
+  }
+
+  .project {
+      max-width: 100%; /* Full width for small screens */
+  }
+}
+
 
 
 
